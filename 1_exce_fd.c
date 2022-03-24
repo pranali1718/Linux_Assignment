@@ -1,17 +1,20 @@
-#include<stdio.h>
+
+
 #include<fcntl.h>
 #include<stdlib.h>
+#include<stdio.h>
 
 int main()
 {
-	int fd;
-	char msg[200] = "Test whether the process(exec() system call) that replaces old program data , will inherit the fd's or not\n";
+	int pp;
+	char message[200] = "Test whether the process(exec() system call) that replaces old program data , will inherit the fd's or not\n";
 
-	fd=open("fd_execl.txt", O_CREAT|O_RDWR, 0666);
-	printf("File descriptor is: %d\n",fd);
+	pp=open("fd_execl.txt", O_CREAT|O_RDWR, 0666);
+	printf("The File Descriptor Is Given: %d\n ", pp );
 
-	write(fd, msg, strlen(msg));
+	write(pp, message, strlen( message ));
 
-	close(fd);
+	close(pp);
+	
 	return 0;
 }
